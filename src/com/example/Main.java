@@ -65,14 +65,14 @@ public class Main {
                             throw new IOException();
                             //System.out.println("There are no null and negatives in Roman numbers. Try another numbers.");
                         } else {
-                            System.out.println(romeDigits[x - y + 1]);
+                            System.out.println(romeDigits[x - y - 1]);
                         }
                         break;
                     case "*":
                         System.out.println(romeDigits[(x + 1) * (y + 1) - 1]);
                         break;
                     case "/":
-                        if ((x + 1) / (y + 1) - 1 > 0) {
+                        if ((x + 1) / (y + 1) - 1 > 0)  {
                             System.out.println(romeDigits[(x + 1) / (y + 1) - 1]);
                         } else {
                             throw new IOException();
