@@ -3,17 +3,18 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.Arrays;
 
+@SuppressWarnings("all")
 public class Main {
     public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        calc(input);
 
+    }
+
+    public static String calc(String input) throws IOException{
         int x;
         int y;
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Input the 2 digits and math operation");
-
-        String input = scanner.nextLine();
 
         String[] romeDigits = new String[]{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL", "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC", "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
 
@@ -26,7 +27,7 @@ public class Main {
         }
         else if (!Arrays.asList(romeDigits).contains(calculation[0]) && !Arrays.asList(romeDigits).contains(calculation[2]))
         {
-            if (Integer.valueOf(calculation[0]) < -10 || Integer.valueOf(calculation[0]) > 10 || Integer.valueOf(calculation[2]) < -10 || Integer.valueOf(calculation[2]) > 10)
+            if (Integer.parseInt(calculation[0]) < -10 || Integer.parseInt(calculation[0]) > 10 || Integer.parseInt(calculation[2]) < -10 || Integer.valueOf(calculation[2]) > 10)
             {
                 throw new IOException();
                 //System.out.println("Some digits are too big! You can input only 10 or -10 max!");
@@ -35,16 +36,16 @@ public class Main {
             {
                 switch (calculation[1]) {
                     case "+":
-                        System.out.println(Integer.valueOf(calculation[0]) + Integer.valueOf(calculation[2]));
+                        System.out.println(Integer.parseInt(calculation[0]) + Integer.parseInt(calculation[2]));
                         break;
                     case "-":
-                        System.out.println(Integer.valueOf(calculation[0]) - Integer.valueOf(calculation[2]));
+                        System.out.println(Integer.parseInt(calculation[0]) - Integer.parseInt(calculation[2]));
                         break;
                     case "*":
-                        System.out.println(Integer.valueOf(calculation[0]) * Integer.valueOf(calculation[2]));
+                        System.out.println(Integer.parseInt(calculation[0]) * Integer.parseInt(calculation[2]));
                         break;
                     case "/":
-                        System.out.println(Integer.valueOf(calculation[0]) / Integer.valueOf(calculation[2]));
+                        System.out.println(Integer.parseInt(calculation[0]) / Integer.parseInt(calculation[2]));
                         break;
                 }
             }
@@ -91,5 +92,7 @@ public class Main {
             throw new IOException();
             // System.out.println("Something went wrong! Try to chek your inputted math operation.");
         }
+        return input;
     }
+
 }
